@@ -30,9 +30,9 @@ ENV JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/jre" \
 #=====================
 # Install Android SDK
 #=====================
-ARG SDK_VERSION=sdk-tools-linux-3859397
-ARG ANDROID_BUILD_TOOLS_VERSION=26.0.0
-ARG ANDROID_PLATFORM_VERSION="android-25"
+ARG SDK_VERSION=sdk-tools-linux-4333796
+ARG ANDROID_BUILD_TOOLS_VERSION=28.0.3
+ARG ANDROID_PLATFORM_VERSION="android-28"
 
 ENV SDK_VERSION=$SDK_VERSION \
     ANDROID_BUILD_TOOLS_VERSION=$ANDROID_BUILD_TOOLS_VERSION \
@@ -140,7 +140,7 @@ RUN echo 'gem: --no-rdoc --no-ri' >> "$HOME/.gemrc"
 # install things globally, for great justice
 ENV GEM_HOME /usr/local/bundle
 ENV PATH $GEM_HOME/bin:$PATH
-RUN gem install bundler \
+RUN  gem install bundler -v '1.16.2' \
     && bundle config --global path "$GEM_HOME" \
     && bundle config --global bin "$GEM_HOME/bin"
 
